@@ -104,6 +104,7 @@ let g:NERDTreeMinimalUI = 1  " Hide help text
 let g:NERDTreeAutoDeleteBuffer = 1
 
 nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <leader>e :Lexplore<CR>
 nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>h :wincmd h<CR>
@@ -175,3 +176,10 @@ augroup highlight_yank
 augroup END
 
 autocmd BufWritePre * :call TrimWhitespace()
+
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
