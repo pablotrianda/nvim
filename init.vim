@@ -103,7 +103,9 @@ let g:NERDTreeChDirMode = 2  " Change cwd to parent node
 let g:NERDTreeMinimalUI = 1  " Hide help text
 let g:NERDTreeAutoDeleteBuffer = 1
 
-nnoremap <F2> :NERDTreeToggle<CR>
+let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
+let $FZF_DEFAULT_OPTS='--reverse'
+
 nnoremap <leader>e :Lexplore<CR>
 nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
