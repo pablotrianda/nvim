@@ -50,10 +50,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'neoclide/coc-highlight'
 Plug 'Raimondi/delimitMate'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 
 
 "  Theme
-Plug 'gruvbox-community/gruvbox'
+"Plug 'gruvbox-community/gruvbox'
+Plug 'flrnprz/plastic.vim'
 
 call plug#end()
 
@@ -83,8 +87,17 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_auto_sameids = 1
 
-colorscheme gruvbox
+" Theme settings
+"colorscheme gruvbox
+"set background=dark
+set termguicolors
+
 set background=dark
+syntax on
+colorscheme plastic
+
+" Lightline
+let g:lightline = { 'colorscheme': 'plastic' }
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -125,10 +138,6 @@ nnoremap <Leader>rp :resize 100<CR>
 nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-" Vim with me
-nnoremap <leader>vwm :colorscheme gruvbox<bar>:set background=dark<CR>
-nmap <leader>vtm :highlight Pmenu ctermbg=gray guibg=gray
 
 " Save with Ctrl+s
 nnoremap <c-s> :w <CR>
@@ -187,3 +196,6 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
 let delimitMate_expand_cr = 1
+
+" Airline config
+let g:airline_powerline_fonts = 1
