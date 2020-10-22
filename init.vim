@@ -22,6 +22,7 @@ set termguicolors
 set scrolloff=8
 set ignorecase
 set mouse=a
+set cursorline
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -46,7 +47,6 @@ Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'neoclide/coc-highlight'
 Plug 'Raimondi/delimitMate'
@@ -56,8 +56,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 
 "  Theme
-"Plug 'gruvbox-community/gruvbox'
-Plug 'flrnprz/plastic.vim'
+Plug 'gruvbox-community/gruvbox'
+"Plug 'flrnprz/plastic.vim'
+"Plug 'connorholyday/vim-snazzy'
 
 call plug#end()
 
@@ -87,14 +88,18 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_auto_sameids = 1
 
-" Theme settings
-"colorscheme gruvbox
-"set background=dark
+set background=dark
+
+" Theme settings GRUVBOX
+colorscheme gruvbox
+set background=dark
 set termguicolors
 
-set background=dark
-syntax on
-colorscheme plastic
+" Theme settings PLASTIC
+"colorscheme plastic
+
+" Theme settings SANZZY
+"colorscheme snazzy
 
 " Lightline
 let g:lightline = { 'colorscheme': 'plastic' }
@@ -111,15 +116,11 @@ let g:vrfr_rg = 'true'
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
-let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeChDirMode = 2  " Change cwd to parent node
-let g:NERDTreeMinimalUI = 1  " Hide help text
-let g:NERDTreeAutoDeleteBuffer = 1
 
 let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
-nnoremap <leader>e :Lexplore<CR>
+nnoremap <leader>e :Vexplore<CR>
 nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>h :wincmd h<CR>
@@ -188,12 +189,6 @@ augroup END
 
 autocmd BufWritePre * :call TrimWhitespace()
 
-
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
 
 let delimitMate_expand_cr = 1
 
