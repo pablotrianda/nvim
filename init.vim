@@ -44,7 +44,7 @@ Plug 'tweekmonster/gofmt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
@@ -52,7 +52,7 @@ Plug 'neoclide/coc-highlight'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+Plug 'fatih/vim-go'
 
 
 "  Theme
@@ -69,10 +69,8 @@ if exists('+termguicolors')
 endif
 let g:gruvbox_invert_selection='0'
 
-" --- The Greatest plugin of all time.  I am not bias
-" let g:vim_be_good_floating = 0
 
-" --- vim go (polyglot) settings.
+" --- vim go settings.
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
@@ -87,6 +85,8 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+let g:go_highlight_diagnostic_errors = 1
 
 set background=dark
 
