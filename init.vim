@@ -78,6 +78,9 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_diagnostic_errors = 1
 
 
+" Lightline
+let g:lightline = { 'colorscheme': 'plastic' }
+
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -119,6 +122,16 @@ nnoremap <c-s> :w <CR>
 nnoremap <c-s> <Esc>:w <CR>
 
 
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-space> coc#refresh()
@@ -159,7 +172,6 @@ let delimitMate_expand_cr = 1
 " Airline config
 let g:airline_powerline_fonts = 1
 
-" Theme settings
 set background=dark
 set termguicolors
 colorscheme onedark
