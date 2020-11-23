@@ -52,6 +52,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
+Plug 'preservim/nerdtree'
+
 
 "Theme
 Plug 'joshdick/onedark.vim'
@@ -97,7 +99,7 @@ let g:netrw_winsize = 25
 let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
-nnoremap <leader>e :Vexplore<CR>
+nnoremap <leader>e :NERDTreeToggle %<CR>
 nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>h :wincmd h<CR>
