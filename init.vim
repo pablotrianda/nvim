@@ -103,6 +103,7 @@ nnoremap <leader>e :NERDTreeToggle %<CR>
 "nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
 " apt-get install silversearcher-ag
 nnoremap <leader>f :Ag <CR>
+nnoremap <Leader>fw :Ag <C-R><C-W><CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
