@@ -100,12 +100,15 @@ let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
 nnoremap <leader>e :NERDTreeToggle %<CR>
-nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
+"nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
+" apt-get install silversearcher-ag
+nnoremap <leader>f :Ag <CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>x :wincmd c<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
