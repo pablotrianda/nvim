@@ -186,3 +186,8 @@ let g:airline_powerline_fonts = 1
 set background=dark
 set termguicolors
 colorscheme onedark
+
+" Git blamer config
+let g:blamer_enabled = 1
+let g:blamer_delay = 100
+
