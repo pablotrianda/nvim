@@ -52,7 +52,12 @@ Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
-Plug 'preservim/nerdtree'
+Plug 'obxhdx/vim-auto-highlight'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'APZelos/blamer.nvim'
+
+
 
 
 "Theme
