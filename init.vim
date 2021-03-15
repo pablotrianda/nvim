@@ -23,6 +23,7 @@ set scrolloff=8
 set ignorecase
 set mouse=a
 set cursorline
+set autoread
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -56,6 +57,7 @@ Plug 'obxhdx/vim-auto-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'APZelos/blamer.nvim'
+
 
 
 
@@ -190,4 +192,10 @@ colorscheme onedark
 " Git blamer config
 let g:blamer_enabled = 1
 let g:blamer_delay = 100
+
+" Coc config
+let g:coc_global_extensions = [
+      \'coc-html',
+      \'coc-pyright',
+      \]
 
