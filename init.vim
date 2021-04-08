@@ -25,6 +25,7 @@ set mouse=a
 set cursorline
 set autoread
 
+
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -57,10 +58,11 @@ Plug 'obxhdx/vim-auto-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'APZelos/blamer.nvim'
-
-
-
-
+Plug 'prettier/vim-prettier'
+Plug 'tasn/vim-tsx'
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-surround'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 "Theme
 Plug 'joshdick/onedark.vim'
@@ -106,12 +108,12 @@ let g:netrw_winsize = 25
 let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
-nnoremap <leader>e :NERDTreeToggle %<CR>
+nnoremap <leader>e :Vexplore<CR>
+"nnoremap <leader>e :NERDTreeToggle <CR>
 "nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
 " apt-get install silversearcher-ag
 nnoremap <leader>f :Ag <CR>
 nnoremap <Leader>fw :Ag <C-R><C-W><CR>
-nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -119,7 +121,6 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>x :wincmd c<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
@@ -190,12 +191,40 @@ set termguicolors
 colorscheme onedark
 
 " Git blamer config
-let g:blamer_enabled = 1
-let g:blamer_delay = 100
+"let g:blamer_enabled = 1
+"let g:blamer_delay = 100
 
 " Coc config
 let g:coc_global_extensions = [
       \'coc-html',
       \'coc-pyright',
+      \'coc-tsserver',
+      \'coc-phpls',
       \]
+
+" Autoformat on save
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.js,*.html,*.xhtml,*.phtml'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
 
