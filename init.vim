@@ -1,7 +1,7 @@
 syntax on
 
 set guicursor=
-set noshowmatch
+set showmatch
 set relativenumber
 set nohlsearch
 set hidden
@@ -24,6 +24,7 @@ set ignorecase
 set mouse=a
 set cursorline
 set autoread
+set encoding=UTF-8
 
 
 " Give more space for displaying messages.
@@ -63,6 +64,10 @@ Plug 'tasn/vim-tsx'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+
 
 "Theme
 Plug 'joshdick/onedark.vim'
@@ -108,9 +113,9 @@ let g:netrw_winsize = 25
 let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
-nnoremap <leader>e :Vexplore<CR>
-"nnoremap <leader>e :NERDTreeToggle <CR>
+"nnoremap <leader>e :Vexplore<CR>
 "nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>e :NERDTreeToggle <CR>
 " apt-get install silversearcher-ag
 nnoremap <leader>f :Ag <CR>
 nnoremap <Leader>fw :Ag <C-R><C-W><CR>
