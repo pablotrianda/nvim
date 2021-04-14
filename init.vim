@@ -115,7 +115,7 @@ let $FZF_DEFAULT_OPTS='--reverse'
 
 "nnoremap <leader>e :Vexplore<CR>
 "nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>e :NERDTreeToggle <CR>
+nnoremap <leader>e :NERDTreeFind <CR>
 " apt-get install silversearcher-ag
 nnoremap <leader>f :Ag <CR>
 nnoremap <Leader>fw :Ag <C-R><C-W><CR>
