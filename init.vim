@@ -25,7 +25,7 @@ set mouse=a
 set cursorline
 set autoread
 set encoding=UTF-8
-
+set clipboard+=unnamedplus
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -139,6 +139,9 @@ vnoremap K :m '<-2<CR>gv=gv
 " Save with Ctrl+s
 nnoremap <c-s> :w <CR>
 nnoremap <c-s> <Esc>:w <CR>
+
+" Spell check (Spanish)
+nnoremap <F2> :setlocal spell spelllang=es_ar <CR>
 
 
 function! s:check_back_space() abort
