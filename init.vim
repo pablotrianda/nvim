@@ -51,7 +51,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'neoclide/coc-highlight'
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
@@ -67,6 +67,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'udalov/kotlin-vim'
 
 
 "Theme
@@ -142,17 +143,21 @@ nnoremap <c-s> <Esc>:w <CR>
 
 " Spell check (Spanish)
 nnoremap <F2> :setlocal spell spelllang=es_ar <CR>
+nnoremap <F3> :setlocal spell spelllang=en <CR>
 
+" Behave vim
+nnoremap Y y$
 
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap N nzzzv
+nnoremap J mzJ'z
 
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -235,4 +240,4 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
 
-
+" coc-go coc-html coc-css coc-json
