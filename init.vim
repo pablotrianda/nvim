@@ -1,4 +1,5 @@
 syntax on
+set nocompatible
 
 set guicursor=
 set showmatch
@@ -50,7 +51,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'neoclide/coc-highlight'
-"Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go'
@@ -66,8 +66,8 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot'
 Plug 'udalov/kotlin-vim'
-
 
 "Theme
 Plug 'joshdick/onedark.vim'
@@ -161,7 +161,9 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command AOpen  !android-studio $1 `echo "%"` 
 
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
@@ -174,7 +176,6 @@ nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
-
 
 let delimitMate_expand_cr = 1
 
