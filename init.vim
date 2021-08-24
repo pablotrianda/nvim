@@ -68,6 +68,8 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'udalov/kotlin-vim'
+Plug 'sebdah/vim-delve'
+Plug 'Raimondi/delimitMate'
 
 "Theme
 Plug 'joshdick/onedark.vim'
