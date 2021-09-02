@@ -19,7 +19,8 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set termguicolors
+"set termguicolors
+set notermguicolors
 set scrolloff=8
 set ignorecase
 set mouse=a
@@ -64,12 +65,15 @@ Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'udalov/kotlin-vim'
 Plug 'sebdah/vim-delve'
 Plug 'Raimondi/delimitMate'
+
+" nvim-tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 "Theme
 Plug 'joshdick/onedark.vim'
@@ -117,7 +121,8 @@ let $FZF_DEFAULT_OPTS='--reverse'
 
 "nnoremap <leader>e :Vexplore<CR>
 "nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>e :NERDTreeFind <CR>
+nnoremap <leader>E :NvimTreeFindFile   <CR>
+nnoremap <leader>e :NvimTreeToggle   <CR>
 " apt-get install silversearcher-ag
 nnoremap <leader>f :Ag <CR>
 nnoremap <Leader>fw :Ag <C-R><C-W><CR>
@@ -226,4 +231,4 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " coc-go coc-html coc-css coc-json
-"
+
