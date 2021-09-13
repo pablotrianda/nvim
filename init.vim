@@ -1,5 +1,4 @@
-syntax on
-set nocompatible
+syntax on set nocompatible
 
 set guicursor=
 set showmatch
@@ -70,6 +69,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'udalov/kotlin-vim'
 Plug 'sebdah/vim-delve'
 Plug 'Raimondi/delimitMate'
+Plug 'preservim/nerdcommenter'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -232,3 +232,6 @@ let g:closetag_close_shortcut = '<leader>>'
 
 " coc-go coc-html coc-css coc-json
 
+"Nerdcommenter config
+filetype plugin on 
+map <leader>cc <plug>NERDCommenterToggle
