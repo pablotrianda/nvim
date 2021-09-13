@@ -168,6 +168,9 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" Copy current path file
+nnoremap <leader>kp :let @*=expand("%")<CR>
+
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command AOpen  !android-studio $1 `echo "%"` 
