@@ -18,8 +18,6 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-"set termguicolors
-set notermguicolors
 set scrolloff=8
 set ignorecase
 set mouse=a
@@ -27,6 +25,8 @@ set cursorline
 set autoread
 set encoding=UTF-8
 set clipboard+=unnamedplus
+set termguicolors
+filetype plugin on 
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -70,15 +70,21 @@ Plug 'udalov/kotlin-vim'
 Plug 'sebdah/vim-delve'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdcommenter'
+Plug 'mattn/emmet-vim'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
-"Theme
-Plug 'joshdick/onedark.vim'
+"Themes
+Plug 'bluz71/vim-nightfly-guicolors'
+
 
 call plug#end()
+
+" Theme settings
+set background=dark
+colorscheme nightfly 
 
 
 " --- vim go settings.
@@ -100,9 +106,6 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_diagnostic_errors = 1
 
 
-" Lightline
-let g:lightline = { 'colorscheme': 'plastic' }
-
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -119,8 +122,6 @@ let g:netrw_winsize = 25
 let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
-"nnoremap <leader>e :Vexplore<CR>
-"nnoremap <leader>f :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>E :NvimTreeFindFile   <CR>
 nnoremap <leader>e :NvimTreeToggle   <CR>
 " apt-get install silversearcher-ag
@@ -142,6 +143,8 @@ nnoremap <Leader>rp :resize 100<CR>
 nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+"Nerdcommenter 
+map <leader>cc <plug>NERDCommenterToggle
 " Cycle through autocomplete menu using tab
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
@@ -195,9 +198,6 @@ let delimitMate_expand_cr = 1
 " Airline config
 let g:airline_powerline_fonts = 1
 
-set background=dark
-set termguicolors
-colorscheme onedark
 
 " Git blamer config
 "let g:blamer_enabled = 1
@@ -238,6 +238,3 @@ let g:closetag_close_shortcut = '<leader>>'
 
 " coc-go coc-html coc-css coc-json
 
-"Nerdcommenter config
-filetype plugin on 
-map <leader>cc <plug>NERDCommenterToggle
