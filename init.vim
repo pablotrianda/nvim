@@ -44,7 +44,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -71,6 +71,9 @@ Plug 'sebdah/vim-delve'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdcommenter'
 Plug 'mattn/emmet-vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'TimUntersberger/neogit'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -84,6 +87,7 @@ call plug#end()
 
 " Theme settings
 set background=dark
+set t_Co=256
 colorscheme nightfly 
 
 
@@ -122,10 +126,16 @@ let g:netrw_winsize = 25
 let g:fzf_layout = { 'window': { 'width':0.8, 'height':0.8}}
 let $FZF_DEFAULT_OPTS='--reverse'
 
+" Find files using Telescope command-line sugar.
+nnoremap <C-p> <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 nnoremap <leader>E :NvimTreeFindFile   <CR>
 nnoremap <leader>e :NvimTreeToggle   <CR>
 " apt-get install silversearcher-ag
-nnoremap <leader>f :Ag <CR>
+"nnoremap <leader>f :Ag <CR>
 nnoremap <Leader>fw :Ag <C-R><C-W><CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -134,7 +144,7 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>x :wincmd c<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <C-p> :GFiles<CR>
+"nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
@@ -143,6 +153,7 @@ nnoremap <Leader>rp :resize 100<CR>
 nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
 "Nerdcommenter 
 map <leader>cc <plug>NERDCommenterToggle
 " Cycle through autocomplete menu using tab
@@ -176,6 +187,9 @@ nnoremap <leader>kp :let @*=expand("%")<CR>
 
 " View all file on buffer
 map  <leader>ob :Buffers<CR>
+
+" NeoGit
+nmap <leader>gs :Neogit<CR>
 
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
