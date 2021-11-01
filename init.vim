@@ -182,6 +182,10 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" Reselect visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
 " Copy current path file
 nnoremap <leader>kp :let @*=expand("%")<CR>
 
