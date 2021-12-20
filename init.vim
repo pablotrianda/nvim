@@ -1,5 +1,3 @@
-syntax on set nocompatible
-
 set guicursor=
 set showmatch
 set relativenumber
@@ -27,6 +25,8 @@ set encoding=UTF-8
 set clipboard+=unnamedplus
 set termguicolors
 filetype plugin on 
+set splitbelow
+set splitright
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -35,16 +35,10 @@ set cmdheight=2
 " delays and poor user experience.
 set updatetime=50
 
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-"set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -66,7 +60,6 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-Plug 'udalov/kotlin-vim'
 Plug 'sebdah/vim-delve'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdcommenter'
@@ -74,14 +67,15 @@ Plug 'mattn/emmet-vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'TimUntersberger/neogit'
-
+Plug 'Pocco81/TrueZen.nvim'
+Plug 'editorconfig/editorconfig-vim'
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
-
+" Git diff 
+Plug 'mhinz/vim-signify'
 "Themes
 Plug 'bluz71/vim-nightfly-guicolors'
-
 
 call plug#end()
 
@@ -89,7 +83,6 @@ call plug#end()
 set background=dark
 set t_Co=256
 colorscheme nightfly 
-
 
 " --- vim go settings.
 let g:go_highlight_build_constraints = 1
@@ -146,16 +139,14 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 "nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>rp :resize 100<CR>
-nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "Nerdcommenter 
-map <leader>cc <plug>NERDCommenterToggle
+map <leader>cc <plug>NERDCommenterToggle<CR>
 " Cycle through autocomplete menu using tab
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
@@ -216,11 +207,6 @@ let delimitMate_expand_cr = 1
 " Airline config
 let g:airline_powerline_fonts = 1
 
-
-" Git blamer config
-"let g:blamer_enabled = 1
-"let g:blamer_delay = 100
-
 " Coc config
 let g:coc_global_extensions = [
       \'coc-html',
@@ -255,4 +241,3 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " coc-go coc-html coc-css coc-json
-
