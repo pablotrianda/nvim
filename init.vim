@@ -188,7 +188,6 @@ nmap <leader>gs :Neogit<CR>
 
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command AOpen  !android-studio $1 `echo "%"` 
 
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
@@ -241,3 +240,6 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " coc-go coc-html coc-css coc-json
+
+" Blamer
+let g:blamer_delay = 10
