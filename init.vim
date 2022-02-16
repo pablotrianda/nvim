@@ -67,19 +67,23 @@ Plug 'mattn/emmet-vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'TimUntersberger/neogit'
-Plug 'Pocco81/TrueZen.nvim'
+"EditorConig
 Plug 'editorconfig/editorconfig-vim'
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 " Git diff 
 Plug 'mhinz/vim-signify'
-"Themes
+Plug 'ellisonleao/glow.nvim'
+" Themes
 Plug 'bluz71/vim-nightfly-guicolors'
+" Vim be good(game)
+Plug 'ThePrimeagen/vim-be-good'
+
 
 call plug#end()
 
-" Theme settings
+" Theme settings nightfly
 set background=dark
 set t_Co=256
 colorscheme nightfly 
@@ -124,7 +128,7 @@ nnoremap <C-p> <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
+" NvimTree
 nnoremap <leader>E :NvimTreeFindFile   <CR>
 nnoremap <leader>e :NvimTreeToggle   <CR>
 " apt-get install silversearcher-ag
@@ -189,6 +193,13 @@ nmap <leader>gs :Neogit<CR>
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Format file with eslint
+nmap <leader>f :CocCommand eslint.executeAutofix<CR>
+
+" Move the lines with J and K
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
@@ -211,8 +222,8 @@ let g:coc_global_extensions = [
       \'coc-html',
       \'coc-pyright',
       \'coc-tsserver',
-      \'coc-phpls',
       \]
+      "\'coc-eslint',
 
 " Autoformat on save
 let g:prettier#autoformat = 1
