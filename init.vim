@@ -96,6 +96,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'szw/vim-maximizer'
 
 
+
 call plug#end()
 
 " Theme settings nightfly
@@ -151,6 +152,7 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-go',
       \'coc-json',
+      \'coc-groovy',
       \]
       "\'coc-eslint',
 
