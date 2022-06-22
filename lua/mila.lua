@@ -26,6 +26,8 @@ require'lspconfig'.gopls.setup{
     on_attach = on_attach
 } --connect to server
 
+-- NvimTree
+require'nvim-tree'.setup {}
 
 vim.opt.completeopt={"menu","menuone","noselect"}
 -- Setup nvim-cmp.
