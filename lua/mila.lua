@@ -145,6 +145,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
-
+-- Ruby on rails config
+-- install gem install solargraph
+require'lspconfig'.solargraph.setup{}
 
 
