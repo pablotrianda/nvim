@@ -106,6 +106,11 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-projectionist'
+Plug 'dstein64/vim-startuptime'
+
+
 
 call plug#end()
 
@@ -237,8 +242,9 @@ nmap <leader>gs :Neogit<CR>
 
 
 " Move the lines with J and K
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
+"nnoremap <A-j> :m .+1<CR>==
+"nnoremap <A-k> :m .-2<CR>==
+
 
 " GoTo code navigation.
 " nmap <leader>gd <Plug>(coc-definition)
@@ -251,7 +257,14 @@ nnoremap <A-k> :m .-2<CR>==
 " nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 " nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 " nnoremap <leader>cr :CocRestart
+set completeopt=menu,menuone,noselect
+
+" Template files
+" Used for today I learned tool 
+autocmd BufNewFile til-*.md 0r ~/.config/nvim/skeletons/til.md 
 
 lua << EOF
 require('mila')
+-- Develop plugin
 EOF
+

@@ -1,6 +1,5 @@
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local on_attach = function(client, bufnr)
-    print("Hello!!")
+    print("Loaded!!")
 
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -148,5 +147,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- Ruby on rails config
 -- install gem install solargraph
 require'lspconfig'.solargraph.setup{}
+
+require'lspconfig'.groovyls.setup{
+    cmd = { "java", "-jar", "/home/pablo/groovy-language-server/build/libs/groovy-language-server-all.jar" },
+}
+
+-- TypeScript server
+require'lspconfig'.tsserver.setup {}
+
+-- Python server
+require'lspconfig'.pyright.setup{}
 
 
