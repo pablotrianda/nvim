@@ -162,6 +162,9 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.api.nvim_set_keymap("v", ">", ">gv", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("v", "<", "<gv", {noremap = true, silent = true})
 
+-- Neogit 
+vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Neogit' })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
