@@ -143,6 +143,8 @@ vim.opt.swapfile = false
 
 vim.wo.rnu = true
 
+vim.opt.clipboard = 'unnamedplus'
+
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
 -- See `:help mapleader`
