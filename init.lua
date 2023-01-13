@@ -73,6 +73,9 @@ require('packer').startup(function(use)
   -- Neogit
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
+  -- Nvim Autopairs
+  use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
+
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
