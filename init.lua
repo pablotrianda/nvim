@@ -76,6 +76,9 @@ require('packer').startup(function(use)
   -- Nvim Autopairs
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
 
+  -- Rust
+  use("simrat39/rust-tools.nvim")
+
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
