@@ -177,6 +177,9 @@ vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Neogit' })
 vim.keymap.set('n', '<leader>e', require("nvim-tree").toggle, { desc = 'Toggle NvimTree' })
 vim.keymap.set('n', '<leader>E', require("nvim-tree").focus, { desc = 'Find File NvimTree' })
 
+-- Exit from terminal mode to normal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
