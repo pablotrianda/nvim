@@ -3,7 +3,7 @@ local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nv
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   is_bootstrap = true
-  vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
   vim.cmd [[packadd packer.nvim]]
 end
 
@@ -79,6 +79,8 @@ require('packer').startup(function(use)
   -- Rust
   use("simrat39/rust-tools.nvim")
 
+  -- Debug golang
+  use 'leoluz/nvim-dap-go' -- Install the plugin with Packer
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -167,18 +169,21 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Reselect visual selection after indenting
-vim.api.nvim_set_keymap("v", ">", ">gv", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<", "<gv", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
 
--- Neogit 
+-- Neogit
 vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Neogit' })
 
--- Ntree 
+-- Ntree
 vim.keymap.set('n', '<leader>e', require("nvim-tree").toggle, { desc = 'Toggle NvimTree' })
 vim.keymap.set('n', '<leader>E', require("nvim-tree").focus, { desc = 'Find File NvimTree' })
 
 -- Exit from terminal mode to normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
+-- Formatting when save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -234,7 +239,7 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-    file_ignore_patterns = { "node_modules","dir" },
+    file_ignore_patterns = { "node_modules", "dir" },
   }
 }
 
@@ -381,7 +386,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls', 'gopls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -409,7 +414,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -557,7 +562,16 @@ require("nvim-tree").setup({
   },
 })
 
-
+-- Config debu golang
+-- require('dap-go').setup()
+-- dap.adapters.go = function(callback, config)
+--   -- Wait for delve to start
+--     vim.defer_fn(function()
+--         callback({type = "server", host = "127.0.0.1", port = "port"})
+--       end,
+--     100)
+-- end
+--
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
