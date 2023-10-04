@@ -253,7 +253,12 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-    file_ignore_patterns = { "node_modules", "dir" },
+    file_ignore_patterns = { "node_modules", "dir", ".git" },
+  },
+  pickers = {
+    find_files = {
+      hidden = true
+    }
   }
 }
 
