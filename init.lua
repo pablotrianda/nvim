@@ -1,3 +1,9 @@
+require "appearance"
+require "autosave"
+require "keymappings"
+require "plugins"
+
+
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
@@ -123,95 +129,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
--- [[ Setting options ]]
--- See `:help vim.o`
-
--- Set highlight on search
-vim.o.hlsearch = false
-
--- Make line numbers default
-vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
-
--- Set colorscheme
-vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
-vim.opt.swapfile = false
-
-vim.wo.rnu = true
-
-vim.opt.clipboard = 'unnamedplus'
-
--- [[ Basic Keymaps ]]
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Reselect visual selection after indenting
-vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
-
--- Neogit
-vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Neogit' })
-
--- Ntree
-vim.keymap.set('n', '<leader>e', require("nvim-tree").toggle, { desc = 'Toggle NvimTree' })
-vim.keymap.set('n', '<leader>E', require("nvim-tree").focus, { desc = 'Find File NvimTree' })
-
--- Exit from terminal mode to normal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-
--- Navigation on insert mode
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('i', '<C-h>', '<Left>')
-vim.keymap.set('i', '<C-l>', '<Right>')
-vim.keymap.set('i', '<C-j>', '<Down>')
-vim.keymap.set('i', '<C-k>', '<Up>')
-
-
--- Formatting when save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
@@ -343,11 +260,6 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -550,12 +462,6 @@ prettier.setup {
     "less"
   }
 }
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
 
 -- empty setup using defaults
 require("nvim-tree").setup()
