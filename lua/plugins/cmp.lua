@@ -1,28 +1,17 @@
 -- Nvim cmp Autocompletion
 return {
-  "neovim/nvim-lspconfig",
-  dependencies = {
-    "jose-elias-alvarez/null-ls.nvim",
-    {
-      "williamboman/mason.nvim",
-      opts = {
-        ui = {
-          border = "rounded",
-        },
-      },
-    },
-    "folke/neodev.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
-  event = "VeryLazy",
-  opts = {
-    mason = {
-      enable = true,
-      auto_install = false,
-    },
-    servers = {
-      phpactor = { enable = true },
-    },
-  },
+	"hrsh7th/nvim-cmp",
+	dependencies = {
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-git",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+		"windwp/nvim-autopairs",
+	},
+	event = "VeryLazy",
+	main = "setup.cmp",
+	config = true,
 }
