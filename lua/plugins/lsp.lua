@@ -53,7 +53,7 @@ return {
 		end
 		require('neodev').setup()
 		require('lspconfig').tsserver.setup {}
-		require('lspconfig').golangci_lint_ls.setup {}
+		require('lspconfig').gopls.setup({ on_attach = on_attach })
 		require('lspconfig').lua_ls.setup({
 			on_attach = on_attach,
 			settings = {
