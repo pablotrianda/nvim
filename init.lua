@@ -2,6 +2,7 @@ require "appearance"
 require "autosave"
 require "keymappings"
 require "setup.plugins"
+require "globals"
 
 
 ---- The line beneath this is called `modeline`. See `:help modeline`
