@@ -1,5 +1,22 @@
 return {
-	"pablotrianda/generateTags",
+	"pablotrianda/generate-hashtags",
 	dir = '~/code/plugins/generate-hashtags',
-	config = true
+	config = true,
+	opts = {
+		notAllowedWords = {
+			"como",
+			"cómo",
+			"la",
+			"donde",
+			"dónde",
+			"por",
+			"porque",
+			"no",
+			"si",
+			"es",
+			"esto",
+			"así",
+			"```"
+		}
+	}
 }

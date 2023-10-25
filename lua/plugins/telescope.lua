@@ -1,7 +1,7 @@
- -- Fuzzy Finder (files, lsp, etc)
-return { 
-	'nvim-telescope/telescope.nvim', 
-	branch = '0.1.x', 
+-- Fuzzy Finder (files, lsp, etc)
+return {
+	'nvim-telescope/telescope.nvim',
+	branch = '0.1.x',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	setup = {
 		defaults = {
@@ -13,6 +13,6 @@ return {
 			},
 			file_ignore_patterns = { "node_modules", "dir" },
 		}
-  }
+	}
 
 }
