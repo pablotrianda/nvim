@@ -1,6 +1,5 @@
 return {
 	"pablotrianda/generate-hashtags",
-	dir = '~/code/plugins/generate-hashtags',
 	config = true,
 	opts = {
 		notAllowedWords = {
