@@ -73,20 +73,45 @@ vim.keymap.set('v', '<leader>F',
 	end, { noremap = true, silent = true, desc = '[S]earch [T]ext selected' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>rp', function()
-	require('telescope.builtin').find_files({
-		prompt_title = "Plugins",
-		cwd = "~/.config/nvim/lua/plugins",
-		attach_mappings = function(_, map)
-			local actions = require("telescope.actions")
-			local action_state = require("telescope.actions.state")
-			map("i", "<c-y>", function(prompt_bufnr)
-				local new_plugin = action_state.get_current_line()
-				actions.close(prompt_bufnr)
-				vim.cmd(string.format("edit ~/.config/nvim/lua/plugins/%s.lua", new_plugin))
-			end)
-			return true
-		end
-	})
-end,
-{desc = "[R]ead [P]lugins"}
+		require('telescope.builtin').find_files({
+			prompt_title = "Plugins",
+			cwd = "~/.config/nvim/lua/plugins",
+			attach_mappings = function(_, map)
+				local actions = require("telescope.actions")
+				local action_state = require("telescope.actions.state")
+				map("i", "<c-y>", function(prompt_bufnr)
+					local new_plugin = action_state.get_current_line()
+					actions.close(prompt_bufnr)
+					vim.cmd(string.format("edit ~/.config/nvim/lua/plugins/%s.lua", new_plugin))
+				end)
+				return true
+			end
+		})
+	end,
+	{ desc = "[R]ead [P]lugins" }
 )
+
+-- [[ Harpoon ]]
+vim.keymap.set("n", "<leader>ss", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Harpoon Menu" })
+
+vim.keymap.set("n", "<leader>sa", function() require("harpoon.mark").add_file() end, { desc = "Harpoon Add file" })
+
+vim.keymap.set("n", "<leader>st",
+	function()
+		vim.api.nvim_command [[vsplit]]
+		require("harpoon.term").gotoTerminal(1)
+		vim.api.nvim_command [[startinsert]]
+	end,
+	{ desc = "Harpoon quick split Terminal" }
+)
+
+local binds = 5 -- 5 fast access
+for i = 1, binds do
+	vim.keymap.set("n",
+		string.format("<leader>%s", i),
+		function()
+			require("harpoon.ui").nav_file(i)
+		end,
+		{ desc = "Harpoon go to file " .. i }
+	)
+end
