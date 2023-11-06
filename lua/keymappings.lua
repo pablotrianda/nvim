@@ -92,11 +92,9 @@ vim.keymap.set('n', '<leader>rp', function()
 )
 
 -- [[ Harpoon ]]
-vim.keymap.set("n", "<leader>ss", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Harpoon Menu" })
-
-vim.keymap.set("n", "<leader>sa", function() require("harpoon.mark").add_file() end, { desc = "Harpoon Add file" })
-
-vim.keymap.set("n", "<leader>st",
+vim.keymap.set("n", "<leader>hl", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Harpoon Menu" })
+vim.keymap.set("n", "<leader>ha", function() require("harpoon.mark").add_file() end, { desc = "Harpoon Add file" })
+vim.keymap.set("n", "<leader>ht",
 	function()
 		vim.api.nvim_command [[vsplit]]
 		require("harpoon.term").gotoTerminal(1)
@@ -104,7 +102,6 @@ vim.keymap.set("n", "<leader>st",
 	end,
 	{ desc = "Harpoon quick split Terminal" }
 )
-
 local binds = 5 -- 5 fast access
 for i = 1, binds do
 	vim.keymap.set("n",
