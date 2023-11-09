@@ -112,3 +112,6 @@ for i = 1, binds do
 		{ desc = "Harpoon go to file " .. i }
 	)
 end
+
+-- [[ Oil]]
+vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
