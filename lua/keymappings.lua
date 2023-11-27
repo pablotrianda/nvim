@@ -116,5 +116,11 @@ end
 -- [[ Oil]]
 vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- [[Debugger]]
+vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<CR>", { desc = "[DEBUG] Toggle UI" })
+vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "[DEBUG] Toggle breakpoint" })
+vim.keymap.set("n", "<leader>dc", ":DapContinue<CR>", { desc = "[DEBUG] Continue" })
+vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", { desc = "[DEBUG] Reset UI" })
+
 -- [{Request}]
 vim.keymap.set("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>", { desc = "[REQUEST] Run request" })
