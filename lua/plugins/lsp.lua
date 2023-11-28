@@ -52,7 +52,7 @@ return {
 			end, { desc = 'Format current buffer with LSP' })
 		end
 		require('neodev').setup()
-		require('lspconfig').tsserver.setup {}
+		require('lspconfig').tsserver.setup { on_attach = on_attach }
 		require('lspconfig').gopls.setup({ on_attach = on_attach })
 		require('lspconfig').lua_ls.setup({
 			on_attach = on_attach,
@@ -63,5 +63,6 @@ return {
 				}
 			}
 		})
+		require('lspconfig').intelephense.setup { on_attach = on_attach, }
 	end
 }
