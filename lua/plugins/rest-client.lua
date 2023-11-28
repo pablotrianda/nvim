@@ -1,4 +1,4 @@
 return {
-	"rest-nvim/rest.nvim",
+	dir = '/home/pablo/code/plugins/rest.nvim',
 	config = true,
 }
