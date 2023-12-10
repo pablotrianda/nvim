@@ -111,7 +111,7 @@ for i = 1, binds do
 end
 
 -- [[ Oil]]
-vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 -- [[Debugger]]
 vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<CR>", { desc = "[DEBUG] Toggle UI" })
@@ -121,3 +121,6 @@ vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR
 
 -- [{Request}]
 vim.keymap.set("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>", { desc = "[REQUEST] Run request" })
+
+-- [[ Neogit]]
+vim.keymap.set("n", "<leader>gs", function() require("neogit").open() end, { desc = "Open Neo[GIT]" })
