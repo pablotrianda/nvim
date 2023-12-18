@@ -6,24 +6,27 @@ end
 
 require('dap').set_log_level('INFO') -- Helps when configuring DAP, see logs with :DapShowLog
 
-dap.configurations = {
-	go = {
+
+require('dap-go').setup {
+	dap_configurations = {
 		{
-			type = "go",      -- Which adapter to use
-			name = "Debug",   -- Human readable name
-			request = "launch", -- Whether to "launch" or "attach" to program
-			program = "${file}", -- The buffer you are focused on when running nvim-dap
+			-- Must be "go" or it will be ignored by the plugin
+			type = "go",
+			name = "Attach remote",
+			mode = "remote",
+			request = "attach",
 		},
-	}
-}
-dap.adapters.go = {
-	type = "server",
-	port = "${port}",
-	executable = {
-		command = vim.fn.stdpath("data") .. '/mason/bin/dlv',
-		args = { "dap", "-l", "127.0.0.1:${port}" },
+	},
+	-- delve configurations
+	delve = {
+		path = "dlv",
+		initialize_timeout_sec = 20,
+		port = "${port}",
+		args = {},
+		build_flags = "",
 	},
 }
+
 dap.adapters["pwa-node"] = {
 	type = "server",
 	host = "127.0.0.1",
