@@ -7,6 +7,7 @@ end
 require('dap').set_log_level('INFO') -- Helps when configuring DAP, see logs with :DapShowLog
 
 
+-- Golang
 require('dap-go').setup {
 	dap_configurations = {
 		{
@@ -27,6 +28,7 @@ require('dap-go').setup {
 	},
 }
 
+-- Node
 dap.adapters["pwa-node"] = {
 	type = "server",
 	host = "127.0.0.1",
@@ -48,3 +50,25 @@ for _, language in ipairs { "typescript", "javascript" } do
 		}
 	}
 end
+
+-- Rust
+dap.adapters.codelldb = {
+	type = 'server',
+	port = "${port}",
+	executable = {
+		command = 'codelldb',
+		args = { "--port", "${port}" },
+	}
+}
+
+dap.configurations.rust = {
+	{
+		name = "Rust debug",
+		type = "codelldb",
+		request = "launch",
+		program = "${file}",
+		cwd = '${workspaceFolder}',
+		stopOnEntry = true,
+		showDisassembly = "never"
+	},
+}
