@@ -124,3 +124,14 @@ vim.keymap.set("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>", { desc 
 
 -- [[ Neogit]]
 vim.keymap.set("n", "<leader>gs", function() require("neogit").open() end, { desc = "Open Neo[GIT]" })
+
+-- [[Rustacean]]
+vim.keymap.set("n", "<leader>ca",
+	function()
+		vim.cmd.RustLsp('codeAction')
+	end,
+	{ desc = "[RUST] Show code actions", silent = true }
+)
+
+-- [[Format file]]
+vim.keymap.set("n","<leader>f",function() vim.lsp.buf.format() end, {desc = "[F]ormat file"})

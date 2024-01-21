@@ -1,5 +1,5 @@
 require "appearance"
-require "autosave"
+--require "autosave"
 require "keymappings"
 require "setup.plugins"
 require "globals"
