@@ -61,3 +61,7 @@ vim.keymap.set("n", "<leader>ca",
 
 -- [[Format file]]
 vim.keymap.set("n","<leader>f",function() vim.lsp.buf.format() end, {desc = "[F]ormat file"})
+
+-- [[Move over quick list]]
+vim.keymap.set("n","<leader>.",":cnext <CR>",{ noremap = true, silent = true })
+vim.keymap.set("n","<leader>,",":cprevious <CR>",{ noremap = true, silent = true })
