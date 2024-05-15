@@ -58,6 +58,14 @@ function M.setup()
 			{ name = 'buffer' },
 		})
 	})
+	
+	-- Set up vim-dadbod
+	cmp.setup.filetype('sql', {
+		sources = {
+			{ name = "vim-dadbod-completion"},
+			{ name = 'buffer' },
+		}
+	})
 
 	-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 	cmp.setup.cmdline({ '/', '?' }, {
