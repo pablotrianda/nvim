@@ -65,3 +65,6 @@ vim.keymap.set("n","<leader>f",function() vim.lsp.buf.format() end, {desc = "[F]
 -- [[Move over quick list]]
 vim.keymap.set("n","<leader>.",":cnext <CR>",{ noremap = true, silent = true })
 vim.keymap.set("n","<leader>,",":cprevious <CR>",{ noremap = true, silent = true })
+
+-- [[Remove highlight selection]]
+vim.keymap.set("n","<leader>n",":noh <CR>",{ noremap = true, silent = true })
