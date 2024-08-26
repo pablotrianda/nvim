@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
 
 -- Ntree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-vim.keymap.set("n", "<leader>E", ":NvimTreeFocus<CR>", { desc = "Find File NvimTree" })
+vim.keymap.set("n", "<leader>E", ":NvimTreeFindFileToggle<CR>", { desc = "Find File NvimTree" })
 
 -- Exit from terminal mode to normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
