@@ -68,3 +68,6 @@ vim.keymap.set("n","<leader>,",":cprevious <CR>",{ noremap = true, silent = true
 
 -- [[Remove highlight selection]]
 vim.keymap.set("n","<leader>n",":noh <CR>",{ noremap = true, silent = true })
+
+-- [[Show only current tab]]
+vim.keymap.set("n","<leader>o",":only <CR>",{ noremap = true, silent = true })
