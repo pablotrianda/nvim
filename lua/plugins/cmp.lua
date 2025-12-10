@@ -47,5 +47,13 @@
                 { name = 'buffer' },
         },
       }
+
+      -- Setup up vim-dadbod-completion sql 
+      cmp.setup.filetype({"sql"},{
+        sources = {
+          { name = "vim-dadbod-completion"},
+          { name = "buffer"},
+        },
+    })
     end,
   }
