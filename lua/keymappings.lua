@@ -46,7 +46,7 @@ vim.keymap.set("n", "<leader>dc", ":DapContinue<CR>", { desc = "[DEBUG] Continue
 vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", { desc = "[DEBUG] Reset UI" })
 
 -- [{Request}]
-vim.keymap.set("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>", { desc = "[REQUEST] Run request" })
+vim.api.nvim_set_keymap("n", "<leader>rr", ":Rest run<CR>", { desc = "[REQUEST] Run request with rest-nvim", noremap = true, silent = true })
 
 -- [[ Neogit]]
 vim.keymap.set("n", "<leader>gs", function() require("neogit").open() end, { desc = "Open Neo[GIT]" })
